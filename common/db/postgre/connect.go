@@ -2,6 +2,7 @@ package postgre
 
 import (
 	"fmt"
+	"github.com/fajarabdillahfn/go-movie-api/internal/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"os"
@@ -26,5 +27,19 @@ func OpenDB() *gorm.DB {
 		panic("failed to connect database")
 	}
 
+	if err := autoMigrate(DB); err != nil {
+		panic("failed to migrate, caused: " + err.Error())
+	}
+
 	return DB
+}
+
+func autoMigrate(DB *gorm.DB) error {
+	err := DB.AutoMigrate(&model.Movie{})
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
