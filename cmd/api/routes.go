@@ -16,4 +16,5 @@ func routes(router *httprouter.Router) {
 	router.POST("/movies", MovieHTTPDelivery.AddMovie)
 
 	router.GET("/movies", MovieHTTPDelivery.GetAllMovies)
+	router.GET("/movies/:id", MovieHTTPDelivery.GetMovieById)
 }

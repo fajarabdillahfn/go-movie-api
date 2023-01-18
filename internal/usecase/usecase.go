@@ -9,4 +9,5 @@ type UseCase interface {
 	CreateMovie(ctx context.Context, newMovie *model.Movie) (model.Movie, error)
 
 	GetAllMovies(ctx context.Context) ([]*model.Movie, error)
+	GetMovieById(ctx context.Context, id uint) (*model.Movie, error)
 }
