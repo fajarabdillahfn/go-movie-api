@@ -12,4 +12,6 @@ type UseCase interface {
 	GetMovieById(ctx context.Context, id uint) (*model.Movie, error)
 
 	UpdateMovie(ctx context.Context, id uint, updateMovie *model.InputMovie) error
+
+	DeleteMovieById(ctx context.Context, id uint) error
 }

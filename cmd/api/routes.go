@@ -19,4 +19,6 @@ func routes(router *httprouter.Router) {
 	router.GET("/movies/:id", MovieHTTPDelivery.GetMovieById)
 
 	router.PATCH("/movies/:id", MovieHTTPDelivery.UpdateMovieById)
+
+	router.DELETE("/movies/:id", MovieHTTPDelivery.DeleteMovie)
 }

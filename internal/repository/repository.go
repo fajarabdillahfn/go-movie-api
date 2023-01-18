@@ -12,4 +12,6 @@ type Repository interface {
 	GetById(ctx context.Context, id uint) (*model.Movie, error)
 
 	Update(ctx context.Context, id uint, updateDetails map[string]interface{}) error
+
+	Delete(ctx context.Context, id uint) error
 }
