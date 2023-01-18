@@ -6,7 +6,7 @@ import (
 )
 
 type Movie struct {
-	ID          uint           `gorm:"primaryKey" json:"id"`
+	ID          uint           `gorm:"primaryKey;autoIncrement" json:"id"`
 	Title       string         `gorm:"not null" json:"title"`
 	Description string         `json:"description"`
 	Rating      float32        `json:"rating"`
@@ -14,4 +14,11 @@ type Movie struct {
 	CreatedAt   time.Time      `json:"created_at"`
 	UpdatedAt   time.Time      `json:"updated_at"`
 	DeletedAt   gorm.DeletedAt `gorm:"index" json:"-"`
+}
+
+type InputMovie struct {
+	Title       string  `gorm:"not null" json:"title"`
+	Description string  `json:"description"`
+	Rating      float32 `json:"rating"`
+	Image       string  `json:"image"`
 }

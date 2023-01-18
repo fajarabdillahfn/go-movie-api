@@ -13,12 +13,19 @@ import (
 func (d *Delivery) AddMovie(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	ctx := r.Context()
 
-	var newMovie model.Movie
+	var inputMovie model.InputMovie
 
-	err := json.NewDecoder(r.Body).Decode(&newMovie)
+	err := json.NewDecoder(r.Body).Decode(&inputMovie)
 	if err != nil {
 		cWrapper.ErrorJSON(w, err, "invalid parameter", http.StatusBadRequest)
 		return
+	}
+
+	newMovie := model.Movie{
+		Title:       inputMovie.Title,
+		Description: inputMovie.Description,
+		Rating:      inputMovie.Rating,
+		Image:       inputMovie.Image,
 	}
 
 	movie, err := d.movieUC.CreateMovie(ctx, &newMovie)
