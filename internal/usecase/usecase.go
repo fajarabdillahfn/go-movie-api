@@ -10,4 +10,6 @@ type UseCase interface {
 
 	GetAllMovies(ctx context.Context) ([]*model.Movie, error)
 	GetMovieById(ctx context.Context, id uint) (*model.Movie, error)
+
+	UpdateMovie(ctx context.Context, id uint, updateMovie *model.InputMovie) error
 }

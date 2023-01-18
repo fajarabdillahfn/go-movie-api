@@ -10,4 +10,6 @@ type Repository interface {
 
 	GetAll(ctx context.Context) ([]*model.Movie, error)
 	GetById(ctx context.Context, id uint) (*model.Movie, error)
+
+	Update(ctx context.Context, id uint, updateDetails map[string]interface{}) error
 }
