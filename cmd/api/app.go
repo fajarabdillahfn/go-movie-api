@@ -10,6 +10,8 @@ import (
 func Start() {
 	port := os.Getenv("APP_PORT")
 
+	initialize()
+
 	router := httprouter.New()
 	routes(router)
 
