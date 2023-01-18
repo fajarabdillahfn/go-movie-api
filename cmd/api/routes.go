@@ -12,4 +12,6 @@ func routes(router *httprouter.Router) {
 			return
 		}
 	})
+
+	router.POST("/movies", MovieHTTPDelivery.AddMovie)
 }

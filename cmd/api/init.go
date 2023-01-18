@@ -17,7 +17,7 @@ var (
 	pgMovie           *gorm.DB
 	movieRepo         rMovie.Repository
 	movieUseCase      uMovie.UseCase
-	movieHTTPDelivery *httpMovie.Delivery
+	MovieHTTPDelivery *httpMovie.Delivery
 )
 
 func initialize() {
@@ -25,5 +25,5 @@ func initialize() {
 
 	movieRepo = pgMovieRepo.NewMovieRepo(pgMovie)
 	movieUseCase = uMoveV1.NewMovieUsecase(movieRepo)
-	movieHTTPDelivery = httpMovie.NewMovieHTTP(movieUseCase)
+	MovieHTTPDelivery = httpMovie.NewMovieHTTP(movieUseCase)
 }

@@ -8,7 +8,7 @@ import (
 )
 
 func Start() {
-	port := os.Getenv("APP_PORT")
+	port := ":" + os.Getenv("APP_PORT")
 
 	initialize()
 
