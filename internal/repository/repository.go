@@ -1,5 +1,7 @@
 package repository
 
+//go:generate moq -out repository_test.go . Repository
+
 import (
 	"context"
 	"github.com/fajarabdillahfn/go-movie-api/internal/model"

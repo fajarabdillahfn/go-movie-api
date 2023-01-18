@@ -1,5 +1,7 @@
 package usecase
 
+//go:generate moq -out usecase_test.go . UseCase
+
 import (
 	"context"
 	"github.com/fajarabdillahfn/go-movie-api/internal/model"
